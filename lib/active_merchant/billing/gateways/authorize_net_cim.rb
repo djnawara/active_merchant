@@ -506,6 +506,7 @@ module ActiveMerchant #:nodoc:
             xml.tag!('customerProfileId', transaction[:customer_profile_id])
             xml.tag!('customerPaymentProfileId', transaction[:customer_payment_profile_id])
             xml.tag!('approvalCode', transaction[:approval_code]) if transaction[:type] == :capture_only
+            xml.tag!('cardCode', transaction[:card_code]) if transaction[:card_code]
             add_order(xml, transaction[:order]) if transaction[:order]
           end
         end
